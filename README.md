@@ -1,7 +1,7 @@
 naclports
 ---------
 
-This is an independent record repository which keeps track of what utilities I have ported to Native Client. The Native Client is a sandbox technology from Google which allows the developer to run native C/C++ code (Java supposedly later) efficiently and securely, giving the code complete access to the CPU, independent of the OS, provided you have Chromium/Chrome.
+This is an independent record repository which keeps track of what utilities I have ported to Native Client. The Native Client is a sandbox technology from Google which allows the developer to run native C/C++ code (Java supposedly later) efficiently and securely in the browser, giving the code complete access to the CPU, independent of the OS, provided you have Chromium/Chrome.
 
 List of Projects
 ----------------
