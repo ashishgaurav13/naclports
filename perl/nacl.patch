@@ -1,0 +1,33 @@
+diff --git a/Makefile.micro b/Makefile.micro
+old mode 100644
+new mode 100755
+--- a/Makefile.micro
++++ b/Makefile.micro
+@@ -14,7 +14,7 @@ RUN =
+ 
+ all:	microperl
+ 
+-O = uav$(_O) udeb$(_O) udoio$(_O) udoop$(_O) udump$(_O) \
++O = uav$(_O) ucaretx$(_O) udeb$(_O) udoio$(_O) udoop$(_O) udump$(_O) \
+ 	uglobals$(_O) ugv$(_O) uhv$(_O) umro$(_O)\
+ 	umg$(_O) uperlmain$(_O) uop$(_O) ureentr$(_O) \
+ 	upad$(_O) uperl$(_O) uperlio$(_O) uperly$(_O) upp$(_O) \
+@@ -66,6 +66,9 @@ perly.h: perly.y
+ 
+ uav$(_O):	$(HE) av.c
+ 	$(CC) $(CCFLAGS) -o $@ $(CFLAGS) av.c
++	
++ucaretx$(_O):	$(HE) caretx.c
++	$(CC) $(CCFLAGS) -o $@ $(CFLAGS) caretx.c
+ 
+ udeb$(_O):	$(HE) deb.c
+ 	$(CC) $(CCFLAGS) -o $@ $(CFLAGS) deb.c
+@@ -181,7 +184,7 @@ uperlapi$(_O):	$(HE) perlapi.c perlapi.h
+ uuudmap.h umg_data.h: ubitcount.h
+ 
+ ubitcount.h: ugenerate_uudmap$(_X)
+-	$(RUN) ./ugenerate_uudmap$(_X) $(generated_headers)
++#  $(RUN) ./ugenerate_uudmap$(_X) $(generated_headers)
+ 
+ ugenerate_uudmap$(_O): generate_uudmap.c
+ 	$(CC) $(CCFLAGS) -o $@ $(CFLAGS) generate_uudmap.c
