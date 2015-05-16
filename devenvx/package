@@ -64,6 +64,7 @@ nano|ok|${PACKAGE_AS_ONE} \
 nethack|ok|${PACKAGE_AS_ONE} \
 ninja|WIP|${PACKAGE_BY_ARCH} \
 openssh|ok|glibc.zip \
+perl|ok|${PACKAGE_BY_ARCH} \
 python3|WIP|${TOOLCHAIN}/python.zip \
 python|ok|${TOOLCHAIN}/python.zip \
 ruby|ok|${TOOLCHAIN}/ruby.zip \
@@ -74,6 +75,7 @@ texlive|ok|${PACKAGE_BY_ARCH} \
 thttpd|ok|glibc.zip \
 tk|ok|glibc/${NACL_ARCH_ALT}.zip \
 toybox|WIP|${TOOLCHAIN}/toybox-0.4.7.zip \
+tree|ok|${PACKAGE_BY_ARCH} \
 twm|ok|glibc/${NACL_ARCH_ALT}.zip \
 vim|ok|${PACKAGE_AS_ONE} \
 xeyes|ok|glibc/${NACL_ARCH_ALT}.zip \

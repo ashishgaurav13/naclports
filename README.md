@@ -7,14 +7,14 @@ List of Projects
 ----------------
 
 1. gawk
-    - [complete]
+    - <img src="https://img.shields.io/badge/status-complete-green.svg"/>
     - version 4.1.1
 2. perl
-    - [incomplete]
+    - <img src="https://img.shields.io/badge/status-incomplete-orange.svg"/>
     - GSoC15 project, more details on [Melange](https://www.google-melange.com/gsoc/project/details/google/gsoc2015/agaurav77/5649050225344512).
     - microperl added (16/05/15) 
 3. tree
-    - [incomplete]
+    - <img src="https://img.shields.io/badge/status-complete-green.svg"/>
     - version 1.7.0
     - one of my favourite ls-like utilities, so I had to do this one.
 4. devenvx
