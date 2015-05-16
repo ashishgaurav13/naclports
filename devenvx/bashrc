@@ -24,8 +24,8 @@ source /mnt/http/setup-environment
 # Setup default .gitconfig if it doesn't already exist.
 if [[ ! -e /home/user/.gitconfig ]]; then
   git config --global init.templatedir ""
-  git config --global user.name "John Doe"
-  git config --global user.email "john.doe@foo.com"
+  git config --global user.name "Ashish Gaurav"
+  git config --global user.email "agaurav77@yahoo.com"
 fi
 
 cd ${HOME}

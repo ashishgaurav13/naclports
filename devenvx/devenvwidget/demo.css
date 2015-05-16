@@ -22,7 +22,7 @@
 
 #output {
   border: 1px solid #ccc;
-  font-family: monospace;
+  font-family: Inconsolata;
   height: 300px;
   padding: 10px;
   white-space: pre;

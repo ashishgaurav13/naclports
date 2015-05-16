@@ -10,6 +10,7 @@
   top: 10px;
   width: 100%%;
   height: calc(100%% - 10px);
+  font-family: Inconsolata;
 }
 
 #spacer {
@@ -21,7 +22,7 @@
   width: 100%;
   background-color: rgba(50, 50, 50, 0.7);
   -webkit-transition: top 0.2s cubic-bezier(1, 0, 0, 1);
-  display: flex;
+  display: hidden;
   flex-direction: column;
   z-index: 100;
   font-family: sans-serif;

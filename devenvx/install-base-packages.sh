@@ -56,7 +56,6 @@ InstallBasePackages() {
   local have_gcc=0
   if [[ "${NACL_ARCH}" == "i686" || "${NACL_ARCH}" == "x86_64" ]]; then
     default_packages+=" \
-  -i emacs \
   -i mingn.base \
   -i mingn.lib"
     have_gcc=1
