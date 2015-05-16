@@ -6,8 +6,13 @@ This is an independent record repository which keeps track of what utilities I h
 List of Projects
 ----------------
 
-1. GNU Awk, or gawk 4.1.1 [Completed]
-2. Perl
-    I intend to do Perl as a GSoC project this year. This one is still incomplete, and is supposed to be done during the summer. I have been selected :) More details on [Melange](https://www.google-melange.com/gsoc/project/details/google/gsoc2015/agaurav77/5649050225344512).
-
-
+1. gawk
+    - [complete]
+    - version 4.1.1
+2. perl
+    - [incomplete]
+    - GSoC15 project, more details on [Melange](https://www.google-melange.com/gsoc/project/details/google/gsoc2015/agaurav77/5649050225344512).
+    - microperl added (16/05/15) 
+3. devenvx
+    - local devenv tailored to my needs
+    - started on 16/05/15
