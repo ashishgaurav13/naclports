@@ -33,7 +33,7 @@ Please note the devenvx is a modification of the devenv (NaCl Development Enviro
 5. Change directory to `naclports/src`.
 6. Type `bin/naclports build devenvx`. This will build `devenvx` for your architecture.
 7. Do `make run` in the same directory. This will most likely start a python server which can be accessed from Chrome at `localhost:5103`.
-8. After this, navigate to `localhost:5103` in Chrome. Choose `devenvx`, and go to app, and open `bash.html`.
+8. After this, navigate to `localhost:5103` in Chrome. Choose `devenvx`, and go to `newlib/app`, and open `bash.html`.
 9. Now you have your devenv. Enjoy!
 
 For package installations, do `package -f -L -i <package-name>` while the python server is running (after building the package using `bin/naclports build <package-name>`). This will install it in the devenv. Reload the devenv to use the package, or use `. setup-environment` to refresh package index, and use the package.
