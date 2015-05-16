@@ -1,0 +1,5 @@
+NAME=tree
+VERSION=1.7.0
+URL=ftp://mama.indstate.edu/linux/tree/tree-1.7.0.tgz
+LICENSE=GPL
+DEPENDS=(nacl-spawn)
