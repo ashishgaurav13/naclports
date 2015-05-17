@@ -6,11 +6,6 @@ This is an independent record repository which keeps track of what utilities I h
 List of Ports
 ----------------
 <table bgcolor=white>
-<tr>
-<td>port</td>
-<td>status</td>
-<td>additional</td>
-<tr>
 <td>`gawk`</td>
 <td><img src="https://img.shields.io/badge/status-complete-green.svg"/></td>
 <td>
