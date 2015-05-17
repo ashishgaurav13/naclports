@@ -14,7 +14,7 @@ List of Ports
 <td>`gawk`</td>
 <td><img src="https://img.shields.io/badge/status-complete-green.svg"/></td>
 <td>
-* version 4.1.1
+version 4.1.1
 </td>
 </tr>
 <tr>
@@ -37,7 +37,7 @@ List of Ports
 <td>`devenvx`</td>
 <td></td>
 <td>
-* local devenv tailored to my needs
+local devenv tailored to my needs
 </td></tr>
 
 Using the `devenvx` (Linux)
