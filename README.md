@@ -14,31 +14,40 @@ List of Ports
 <td>`gawk`</td>
 <td><img src="https://img.shields.io/badge/status-complete-green.svg"/></td>
 <td>
-version 4.1.1
+  <ul>
+    <li> version 4.1.1
+  </ul>
 </td>
 </tr>
 <tr>
 <td>`perl`</td>
 <td><img src="https://img.shields.io/badge/status-incomplete-orange.svg"/></td>
 <td>
-* GSoC15 project, more details on [Melange](https://www.google-melange.com/gsoc/project/details/google/gsoc2015/agaurav77/5649050225344512) and at my [blog](http://agaurav77.github.io/blog/).
-* microperl added (16/05/15) 
+  <ul>
+    <li> GSoC15 project, more details on [Melange](https://www.google-melange.com/gsoc/project/details/google/gsoc2015/agaurav77/5649050225344512) and at my [blog](http://agaurav77.github.io/blog/).
+    <li> microperl added (16/05/15) 
 </td>
 </tr>
 <tr>
 <td>`tree`</td>
 <td><img src="https://img.shields.io/badge/status-complete-green.svg"/></td>
 <td>
-* version 1.7.0
-* one of my favourite ls-like utilities, so I had to do this one.
+  <ul>
+    <li> version 1.7.0
+    <li>one of my favourite ls-like utilities, so I had to do this one.
+  </ul>
 </td>
 </tr>
 <tr>
 <td>`devenvx`</td>
 <td></td>
 <td>
-local devenv tailored to my needs
-</td></tr>
+  <ul>
+    <li>local devenv tailored to my needs
+  </ul>
+</td>
+</tr>
+</table>
 
 Using the `devenvx` (Linux)
 -----------------------
