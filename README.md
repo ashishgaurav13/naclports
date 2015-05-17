@@ -6,7 +6,7 @@ This is an independent record repository which keeps track of what utilities I h
 List of Ports
 ----------------
 <table bgcolor=white>
-<td>`gawk`</td>
+<td><code>gawk</code></td>
 <td><img src="https://img.shields.io/badge/status-complete-green.svg"/></td>
 <td>
   <ul>
@@ -15,7 +15,7 @@ List of Ports
 </td>
 </tr>
 <tr>
-<td>`perl`</td>
+<td><code>perl</code></td>
 <td><img src="https://img.shields.io/badge/status-incomplete-orange.svg"/></td>
 <td>
   <ul>
@@ -24,7 +24,7 @@ List of Ports
 </td>
 </tr>
 <tr>
-<td>`tree`</td>
+<td><code>tree</code></td>
 <td><img src="https://img.shields.io/badge/status-complete-green.svg"/></td>
 <td>
   <ul>
@@ -34,7 +34,7 @@ List of Ports
 </td>
 </tr>
 <tr>
-<td>`devenvx`</td>
+<td><code>devenvx</code></td>
 <td></td>
 <td>
   <ul>
