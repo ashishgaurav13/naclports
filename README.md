@@ -24,7 +24,7 @@ List of Ports
 <td><img src="https://img.shields.io/badge/status-incomplete-orange.svg"/></td>
 <td>
   <ul>
-    <li> GSoC15 project, more details on [Melange](https://www.google-melange.com/gsoc/project/details/google/gsoc2015/agaurav77/5649050225344512) and at my [blog](http://agaurav77.github.io/blog/).
+    <li> GSoC15 project, more details on <a href="https://www.google-melange.com/gsoc/project/details/google/gsoc2015/agaurav77/5649050225344512">Melange</a> and at my <a href="http://agaurav77.github.io/blog/">blog</a>.
     <li> microperl added (16/05/15) 
 </td>
 </tr>
