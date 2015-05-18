@@ -103,6 +103,8 @@ function onInit(callback) {
 }
 
 window.onload = function() {
+  // uncomment the following block if you want a mount status to be shown
+  /*
   mounterBackground = document.createElement('div');
   mounterBackground.id = 'mounterBackground';
   mounter = document.createElement('div');
@@ -123,12 +125,19 @@ window.onload = function() {
   mounterThumb.appendChild(sp);
   mounterBackground.appendChild(mounterThumb);
   document.body.appendChild(mounterBackground);
-
+  */
+  
   lib.init(function() {
     onInit(function() {
       initMountSystem();
     });
   });
+  
+  // change the font of hterm
+  hterm.PreferenceManager.defaultPreferences['font-family'] = ('"Inconsolata", "DejaVu Sans Mono", "Everson Mono", ' +
+                  'FreeMono, "Menlo", "Terminal", ' +
+                  'monospace');
+  
 };
 
 // Patch hterm to intercept Ctrl-Shift-N to create new windows.

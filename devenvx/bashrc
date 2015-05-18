@@ -10,10 +10,16 @@
 # Setup environment once to get location of fixed things like coreutils.
 source /mnt/http/setup-environment
 
-/mnt/http/install-base-packages.sh
+# trying to change prompt
+export PS1='\W? '
+
+# if you want to update devenv everytime it can be updated
+# uncomment the following line
+# /mnt/http/install-base-packages.sh
 
 # Setup environment again, to rescan the packages added.
-source /mnt/http/setup-environment
+# uncomment if install-base-packages.sh is uncommented (previous line)
+# source /mnt/http/setup-environment
 
 # TODO(bradnelson): Drop this when we can install things in a more
 # normal location and when we include the git templates in the normal
