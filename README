@@ -1,6 +1,6 @@
 NACLPORTS
 
-This is an independent record repository which keeps track of what utilities I have ported to Native Client. Native Client is a sandbox technology from Google which allows the developer to run native C/C++ code (Java supposedly later) efficiently and securely in the browser, giving the code complete access to the CPU, independent of the OS, provided you have Chromium/Chrome. Some of these ports have been accepted [here](http://code.google.com/p/naclports/).
+This is an independent record repository which keeps track of what utilities I have ported to Native Client. Native Client is a sandbox technology from Google which allows the developer to run native C/C++ code (Java supposedly later) efficiently and securely in the browser, giving the code complete access to the CPU, independent of the OS, provided you have Chromium/Chrome. Some of these ports have been accepted at [5].
 
 LIST OF PORTS
 
@@ -34,7 +34,8 @@ For package installations, do package -fLi <package-name> while the python serve
 
 EXTRA
 
-[1] <a href="https://www.google-melange.com/gsoc/project/details/google/gsoc2015/agaurav77/5649050225344512">melange</a>
-[2] <a href="http://agaurav77.github.io/blog/">my blog</a>
-[3] <a href="http://code.google.com/p/naclports/wiki/HowTo_Checkout">how to checkout chromium naclports</a>
-[4] <a href="http://www.gonacl.com">gonacl.com</a>
+[1] https://www.google-melange.com/gsoc/project/details/google/gsoc2015/agaurav77/5649050225344512
+[2] http://agaurav77.github.io/blog/
+[3] http://code.google.com/p/naclports/wiki/HowTo_Checkout
+[4] http://www.gonacl.com
+[5] http://code.google.com/p/naclports/
