@@ -1,9 +1,67 @@
+diff --git a/Configure b/Configure
+--- a/Configure
++++ b/Configure
+@@ -4570,6 +4570,11 @@ int main() {
+ 	return(0);
+ }
+ EOM
++
++if [ "$NACL_BUILD" != "host" ]; then
++  run="$NACL_SDK_ROOT/tools/sel_ldr.py -- "
++fi
++
+ if $cc -o try $ccflags $ldflags try.c; then
+ 	gccversion=`$run ./try`
+ 	case "$gccversion" in
+diff --git a/Makefile.SH b/Makefile.SH
+--- a/Makefile.SH
++++ b/Makefile.SH
+@@ -478,7 +478,11 @@ c3 = taint.c toke.c util.c deb.c run.c universal.c pad.c globals.c keywords.c
+ c4 = perlio.c perlapi.c numeric.c mathoms.c locale.c pp_pack.c pp_sort.c caretx.c
+ c5 = $(madlysrc) $(mallocsrc)
+ 
++ifeq  ($(NACL_BUILD), host)
+ c = $(c1) $(c2) $(c3) $(c4) $(c5) miniperlmain.c opmini.c perlmini.c
++else
++c = $(c1) $(c2) $(c3) $(c4) $(c5) miniperlmain.c opmini.c perlmini.c perl_pepper.c
++endif
+ 
+ obj0 = op$(OBJ_EXT) perl$(OBJ_EXT)
+ obj0mini = perlmini$(OBJ_EXT) opmini$(OBJ_EXT) miniperlmain$(OBJ_EXT)
+@@ -489,7 +493,12 @@ obj3 = doop$(OBJ_EXT) doio$(OBJ_EXT) regexec$(OBJ_EXT) utf8$(OBJ_EXT) taint$(OBJ
+ minindt_obj = $(obj0mini) $(obj1) $(obj2) $(obj3) $(ARCHOBJS)
+ mini_obj = $(minindt_obj) $(MINIDTRACE_O)
+ ndt_obj = $(obj0) $(obj1) $(obj2) $(obj3) $(ARCHOBJS)
++
++ifeq  ($(NACL_BUILD), host)
+ obj = $(ndt_obj) $(DTRACE_O)
++else
++obj = $(ndt_obj) $(DTRACE_O) perl_pepper$(OBJ_EXT)
++endif
+ 
+ perltoc_pod_prereqs = extra.pods pod/perl5202delta.pod pod/perlapi.pod pod/perlintern.pod pod/perlmodlib.pod pod/perluniprops.pod
+ generated_pods = pod/perltoc.pod $(perltoc_pod_prereqs)
 diff --git a/Makefile.micro b/Makefile.micro
 old mode 100644
 new mode 100755
 --- a/Makefile.micro
 +++ b/Makefile.micro
-@@ -14,7 +14,7 @@ RUN =
+@@ -1,11 +1,14 @@
+ LD = $(CC)
+ CCFLAGS = -c
++BUILD_CCFLAGS = -c
+ DEFINES = -DPERL_CORE -DPERL_MICRO -DSTANDARD_C -DPERL_USE_SAFE_PUTENV \
+ 	  -DNO_MATHOMS
+ OPTIMIZE = 
+ CFLAGS = $(DEFINES) $(OPTIMIZE)
+ LDFLAGS = 
++BUILD_LDFLAGS = 
+ LIBS = -lm
++BUILD_LIBS = -lm
+ _O = .o
+ ENV = env
+ PERL = perl
+@@ -14,7 +17,7 @@ RUN =
  
  all:	microperl
  
@@ -12,7 +70,7 @@ new mode 100755
  	uglobals$(_O) ugv$(_O) uhv$(_O) umro$(_O)\
  	umg$(_O) uperlmain$(_O) uop$(_O) ureentr$(_O) \
  	upad$(_O) uperl$(_O) uperlio$(_O) uperly$(_O) upp$(_O) \
-@@ -66,6 +66,9 @@ perly.h: perly.y
+@@ -66,6 +69,9 @@ perly.h: perly.y
  
  uav$(_O):	$(HE) av.c
  	$(CC) $(CCFLAGS) -o $@ $(CFLAGS) av.c
@@ -22,12 +80,100 @@ new mode 100755
  
  udeb$(_O):	$(HE) deb.c
  	$(CC) $(CCFLAGS) -o $@ $(CFLAGS) deb.c
-@@ -181,7 +184,7 @@ uperlapi$(_O):	$(HE) perlapi.c perlapi.h
- uuudmap.h umg_data.h: ubitcount.h
- 
- ubitcount.h: ugenerate_uudmap$(_X)
--	$(RUN) ./ugenerate_uudmap$(_X) $(generated_headers)
-+#  $(RUN) ./ugenerate_uudmap$(_X) $(generated_headers)
+@@ -184,10 +190,10 @@ ubitcount.h: ugenerate_uudmap$(_X)
+ 	$(RUN) ./ugenerate_uudmap$(_X) $(generated_headers)
  
  ugenerate_uudmap$(_O): generate_uudmap.c
- 	$(CC) $(CCFLAGS) -o $@ $(CFLAGS) generate_uudmap.c
+-	$(CC) $(CCFLAGS) -o $@ $(CFLAGS) generate_uudmap.c
++	$(BUILD_CC) $(BUILD_CCFLAGS) -o $@ $(CFLAGS) generate_uudmap.c
+ 
+ ugenerate_uudmap$(_X): ugenerate_uudmap$(_O)
+-	$(LD) -o ugenerate_uudmap $(LDFLAGS) ugenerate_uudmap$(_O) $(LIBS)
++	$(BUILD_LD) -o ugenerate_uudmap $(BUILD_LDFLAGS) ugenerate_uudmap$(_O) $(BUILD_LIBS)
+ 
+ microtest: microperl
+ 	- cd t && (rm -f perl; ln -s ../microperl perl) \
+diff --git a/ext/ExtUtils-Miniperl/lib/ExtUtils/Miniperl.pm b/ext/ExtUtils-Miniperl/lib/ExtUtils/Miniperl.pm
+old mode 100644
+new mode 100755
+--- a/ext/ExtUtils-Miniperl/lib/ExtUtils/Miniperl.pm
++++ b/ext/ExtUtils-Miniperl/lib/ExtUtils/Miniperl.pm
+@@ -89,11 +89,19 @@ struct perl_vars* Perl_GetVarsPrivate(void) { return my_plvarsp; }
+ #ifdef NO_ENV_ARRAY_IN_MAIN
+ extern char **environ;
+ int
++#ifdef __native_client__
++nacl_perl_main(int argc, char **argv)
++#else
+ main(int argc, char **argv)
++#endif
+ #else
+ int
++#ifdef __native_client__
++nacl_perl_main(int argc, char **argv, char **env)
++#else
+ main(int argc, char **argv, char **env)
+ #endif
++#endif
+ {
+     int exitstatus, i;
+ #ifdef PERL_GLOBAL_STRUCT
+diff --git a/lib/ExtUtils/t/Embed.t b/lib/ExtUtils/t/Embed.t
+old mode 100644
+new mode 100755
+--- a/lib/ExtUtils/t/Embed.t
++++ b/lib/ExtUtils/t/Embed.t
+@@ -168,11 +168,20 @@ struct perl_vars* Perl_GetVarsPrivate(void) { return my_plvarsp; }
+ #endif
+ 
+ #ifdef NO_ENV_ARRAY_IN_MAIN
++#ifdef __native_client__
++int nacl_perl_main(int argc, char **argv) {
++    char **env;
++#else
+ int main(int argc, char **argv) {
+     char **env;
++#endif
++#else
++#ifdef __native_client__
++int nacl_perl_main(int argc, char **argv, char **env) {
+ #else
+ int main(int argc, char **argv, char **env) {
+ #endif
++#endif
+     PerlInterpreter *my_perl;
+ #ifdef PERL_GLOBAL_STRUCT
+     struct perl_vars *my_vars = init_global_struct();
+diff --git a/pod/Makefile.SH b/pod/Makefile.SH
+old mode 100644
+new mode 100755
+diff --git a/util.c b/util.c
+old mode 100644
+new mode 100755
+--- a/util.c
++++ b/util.c
+@@ -2428,6 +2428,7 @@ Perl_my_popen(pTHX_ const char *cmd, const char *mode)
+     }
+     if (PerlProc_pipe(p) < 0)
+ 	return NULL;
++    printf("pipe is working\n");
+     if (doexec && PerlProc_pipe(pp) >= 0)
+ 	did_pipes = 1;
+     while ((pid = PerlProc_fork()) < 0) {
+diff --git a/x2p/a2py.c b/x2p/a2py.c
+old mode 100644
+new mode 100755
+--- a/x2p/a2py.c
++++ b/x2p/a2py.c
+@@ -57,7 +57,11 @@ usage()
+ #endif
+ 
+ int
++#ifdef __native_client__
++nacl_main(int argc, const char **argv)
++#else
+ main(int argc, const char **argv)
++#endif
+ {
+     STR *str;
+     int i;

@@ -8,6 +8,8 @@ LIST OF PORTS
 | gawk               | version 4.1.1                                    |
 +--------------------+--------------------------------------------------+
 | perl               | GSoC15 project, more details at [1], [2]         |
+|                    | (1) microperl added - 16th May                   |
+|                    | (2) core perl build with some problems           |
 +--------------------+--------------------------------------------------+
 | tree               | (1) version 1.7.0                                |
 |                    | (2) one of my favourite ls-like utilities, so I  |
