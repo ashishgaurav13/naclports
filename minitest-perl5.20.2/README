@@ -1,0 +1,77 @@
++-------------------------+
+|   MINITEST-PERL5.20.2   |
++-------------------------+
+
+This directory has tests for Perl5. These were picked up from Perl 5.20.2, 
+some files were removed (those which tested features we're not interested 
+in right now) and some were modified to let the tests work in general for 
+any system which has shell support, and perl installed. Please note that 
+these tests are neither up to date, nor include features present in a 
+current day Perl build. On a system other than NaCl, the working of these 
+tests guarantee that the perl working on your system is much better than 
+just having miniperl, but not as good as complete core build of Perl5.
+
++--------------+
+|    STATUS    |
++--------------+
+
+t/base    [WORKING]
+t/benchmark     [?]
+t/bigmem        [?]
+t/comp    [PARTIAL]
+
+  multiline, opsubs, require, use, utf
+
+t/cmd     [WORKING]
+t/io      [PARTIAL]
+
+  argv, binmode, closepid, crlf_through, data, eintr_print, errno, errnosig,
+  fflush, fs, inplace, iprefix, open, openpid, perlio_leaks, pipe, print,
+  pvbm, read, say, through
+
+t/japh          [?]
+t/lib     [PARTIAL]
+
+  1_compile, croak, deprecate, universal
+
+t/mro           [?]
+t/opbasic [WORKING]
+t/op      [PARTIAL]
+
+  alarm, blocks, chdir, closure, concat2, coreamp, coresubs, cproto, dbm,
+  die_exit, die_keeperr, do, eval, exec, fh, filehandle, filetest,
+  filetest_stack_ok, fork, fresh_utf8_perl, getppid, glob, goto, gv,
+  hash-rt85026, heredoc, inccode, inccode-tie, index_thr, kill0,
+  kill0_child, leaky_magic, lex, lexsub, magic, method, mkdir, override,
+  print, readdir, readline, ref, require_errors, sigdispatch, sigsystem,
+  sleep, split, sprintf2, sselect, stash, stat, sub_lval, substr,
+  substr_thr, svleak, switch, taint, threads, threads-dirh, time, utf8cache,
+  warn, write
+
+t/porting       [?]
+t/re      [PARTIAL]
+
+  charset, fold_grind, pat, pat_advanced, path_advanced_thr, pat_psycho_thr,
+  pat_re_eval, pat_re_eval_thr, pat_rt_report, pat_rt_report_thr,
+  pat_special_cc_thr, pat_thr, recompile, reg_60508, reg_email_thr,
+  reg_eval_scope, regexp_noamp, regexp_notrie, regexp_qr, regexp_qr_embed,
+  regexp_qr_embed_thr, regexp_trielist, regexp_unicode_prop_thr, substT,
+  subst_wamp, uniprops
+
+t/run           [?]
+t/win32         [?]
+t/uni           [?]
+
+
++--------------------------------+
+|             LEGEND             |
+|                                |
+| WORKING - all tests working    |
+| PARTIAL - some tests working,  |
+|           others yet to be     |
+|           fixed, available as  |
+|           <testname>.old       |
+| ?       - not concerned about  |
+|           right now, so no     |
+|           such folder for now  |
++--------------------------------+
