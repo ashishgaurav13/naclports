@@ -510,7 +510,7 @@ EOT
 
     foreach my $t (@tests) {
       unless (exists $::path_to_name{$t}) {
-	my $tname = "t/$t";
+	my $tname = "$t";
 	$::path_to_name{$t} = $tname;
       }
     }

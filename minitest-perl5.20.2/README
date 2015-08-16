@@ -44,9 +44,9 @@ t/op      [PARTIAL]
   hash-rt85026, heredoc, inccode, inccode-tie, index_thr, kill0,
   kill0_child, leaky_magic, lex, lexsub, magic, method, mkdir, override,
   print, readdir, readline, ref, require_errors, sigdispatch, sigsystem,
-  sleep, split, sprintf2, sselect, stash, stat, sub_lval, substr,
-  substr_thr, svleak, switch, taint, threads, threads-dirh, time, utf8cache,
-  warn, write
+  sleep, smartmatch, split, sprintf2, sselect, stash, stat, sub_lval, 
+  substr, substr_thr, svleak, switch, taint, threads, threads-dirh, tie, 
+  time, utf8cache, warn, write
 
 t/porting       [?]
 t/re      [PARTIAL]
