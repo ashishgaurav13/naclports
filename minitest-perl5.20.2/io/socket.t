@@ -90,7 +90,7 @@ SKIP: {
 	}
 	elsif (defined $pid) {
 	    curr_test(curr_test()+2);
-	    #sleep 1;
+	    sleep 1;
 	    # child
 	    ok_child(close($serv), "close server socket in child");
 	    ok_child(socket(my $child, PF_INET, SOCK_STREAM, $tcp),

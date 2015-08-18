@@ -3,7 +3,7 @@
 BEGIN {
     chdir 't' if -d 't';
     #@INC = ('../lib', 'lib');
-    @INC = ('lib');
+    push @INC, 'lib';
     $INC{"feature.pm"} = 1; # so we don't attempt to load feature.pm
 }
 

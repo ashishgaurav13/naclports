@@ -25,9 +25,11 @@ t/comp    [PARTIAL]
 t/cmd     [WORKING]
 t/io      [PARTIAL]
 
-  argv, binmode, closepid, crlf_through, data, eintr_print, errno, errnosig,
-  fflush, fs, inplace, iprefix, open, openpid, perlio_leaks, pipe, print,
-  pvbm, read, say, through
+  ?- binmode, data, eintr, eintr_print, errnosig, perlio_leaks,
+  ?- print, read, say   
+  argv, closepid, crlf_through, errno, 
+  fflush, fs, inplace, iprefix, open, openpid, pipe,
+  pvbm, through
 
 t/japh          [?]
 t/lib     [PARTIAL]
@@ -38,20 +40,23 @@ t/mro           [?]
 t/opbasic [WORKING]
 t/op      [PARTIAL]
 
-  alarm, blocks, chdir, closure, concat2, coreamp, coresubs, cproto, dbm,
-  die_exit, die_keeperr, do, eval, exec, fh, filehandle, filetest,
-  filetest_stack_ok, fork, fresh_utf8_perl, getppid, glob, goto, gv,
+  ?- closure, cproto, die_keeperr, sleep, smartmatch, sselect
+  ?? sprintf2
+  alarm, blocks, chdir, concat2, coreamp, coresubs, dbm,
+  die_exit, do, eval, exec, fh, filehandle, filetest,
+  filetest_stack_ok, fork, fresh_perl_utf8, getppid, glob, goto, gv,
   hash-rt85026, heredoc, inccode, inccode-tie, index_thr, kill0,
   kill0_child, leaky_magic, lex, lexsub, magic, method, mkdir, override,
   print, readdir, readline, ref, require_errors, sigdispatch, sigsystem,
-  sleep, smartmatch, split, sprintf2, sselect, stash, stat, sub_lval, 
+  split, stash, stat, sub_lval, 
   substr, substr_thr, svleak, switch, taint, threads, threads-dirh, tie, 
   time, utf8cache, warn, write
 
 t/porting       [?]
 t/re      [PARTIAL]
 
-  charset, fold_grind, pat, pat_advanced, path_advanced_thr, pat_psycho_thr,
+  ?? charset
+  fold_grind, pat, pat_advanced, path_advanced_thr, pat_psycho_thr,
   pat_re_eval, pat_re_eval_thr, pat_rt_report, pat_rt_report_thr,
   pat_special_cc_thr, pat_thr, recompile, reg_60508, reg_email_thr,
   reg_eval_scope, regexp_noamp, regexp_notrie, regexp_qr, regexp_qr_embed,
@@ -71,7 +76,10 @@ t/uni           [?]
 |           others yet to be     |
 |           fixed, available as  |
 |           <testname>.old       |
-| ?       - not concerned about  |
+| [?]     - not concerned about  |
 |           right now, so no     |
 |           such folder for now  |
+| ?-      - working but still to |
+|           be confirmed         |
+| ??      - take a lot of time   |
 +--------------------------------+
